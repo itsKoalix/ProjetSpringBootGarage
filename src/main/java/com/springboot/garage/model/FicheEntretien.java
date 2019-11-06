@@ -21,7 +21,7 @@ public class FicheEntretien {
 	long id;
 	
 	Client client;
-	Employee employee;
+	Employe employe;
 	Date dateDeCreation;
 	Date dateDeCloture;
 	String description;
@@ -43,11 +43,11 @@ public class FicheEntretien {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	public Employee getEmployee() {
-		return employee;
+	public Employe getEmploye() {
+		return employe;
 	}
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
+	public void setEmploye(Employe employe) {
+		this.employe = employe;
 	}
 	public Date getDateDeCreation() {
 		return dateDeCreation;

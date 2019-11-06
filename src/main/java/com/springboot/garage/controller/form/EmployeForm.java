@@ -5,7 +5,7 @@ import java.util.List;
 import javax.validation.constraints.Pattern;
 
 
-public class EmployeeForm {
+public class EmployeForm {
 	
 	@Pattern(regexp = "Mr|Mme")
 	String civility;

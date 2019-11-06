@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.springboot.garage.controller.form.EmployeeForm;
+import com.springboot.garage.controller.form.EmployeForm;
 import com.springboot.garage.controller.form.PieceForm;
-import com.springboot.garage.enums.Civility;
-import com.springboot.garage.model.Employee;
+import com.springboot.garage.enums.Civilite;
+import com.springboot.garage.model.Employe;
 import com.springboot.garage.services.IServiceListePieces;
 
 @Controller
@@ -33,23 +33,23 @@ public class PieceController {
 	}
 	//Reprendre ICI
 	@PostMapping(value = "/ajouterPiece")
-	public String ajouterPiecePost(@ModelAttribute EmployeeForm employeeForm, Model model) {
-		Employee e = new Employee();
-		e.setCivility(Civility.valueOf(employeeForm.getCivility()));
-		e.setNom(employeeForm.getNom());
-		e.setPrenom(employeeForm.getPrenom());
-		e.setIdentifiant(employeeForm.getIdentifiant());
-		e.setMotDePasse(employeeForm.getMotDePasse());
-		e.setRoles(employeeForm.getRoles());
+	public String ajouterPiecePost(@ModelAttribute EmployeForm employeForm, Model model) {
+		Employe e = new Employe();
+		e.setCivility(Civilite.valueOf(employeForm.getCivility()));
+		e.setNom(employeForm.getNom());
+		e.setPrenom(employeForm.getPrenom());
+		e.setIdentifiant(employeForm.getIdentifiant());
+		e.setMotDePasse(employeForm.getMotDePasse());
+		e.setRoles(employeForm.getRoles());
 		return null;
 	}
 	
-	@GetMapping(value = "/modifierEmployee")
-	public String modifierEmployeeGet(Model model) {
-		return "modifierEmployee";
+	@GetMapping(value = "/modifierEmploye")
+	public String modifierEmployeGet(Model model) {
+		return "modifierEmploye";
 	}
-	@PostMapping(value = "/modifierEmployee")
-	public String modifierEmployeePost(@ModelAttribute EmployeeForm employeeForm, @ModelAttribute Long employeeModId, Model model) {
+	@PostMapping(value = "/modifierEmploye")
+	public String modifierEmployePost(@ModelAttribute EmployeForm employeForm, @ModelAttribute Long employeModId, Model model) {
 		
 		return null;
 	}

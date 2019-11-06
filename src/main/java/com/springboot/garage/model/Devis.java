@@ -20,7 +20,7 @@ public class Devis {
 	
 	String reference;
 	Client client;
-	Employee employee;
+	Employe employe;
 	Date dateDeCreation;
 	Date dateDeCloture;
 	EtatDevis etat;
@@ -48,11 +48,11 @@ public class Devis {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	public Employee getEmployee() {
-		return employee;
+	public Employe getEmploye() {
+		return employe;
 	}
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
+	public void setEmploye(Employe employe) {
+		this.employe = employe;
 	}
 	public Date getDateDeCreation() {
 		return dateDeCreation;
