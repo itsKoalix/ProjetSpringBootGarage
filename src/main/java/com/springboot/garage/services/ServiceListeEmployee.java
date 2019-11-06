@@ -15,14 +15,12 @@ public class ServiceListeEmployee implements IServiceListeEmployee{
 	EmployeeDAO employeeDao;
 	
 	@Override
-	public List<Employee> afficherEmployee() {
-		// TODO Auto-generated method stub
+	public List<Employee> afficherEmployees() {
 		return employeeDao.findAll();
 	}
 
 	@Override
 	public Employee trouverEmployee(Long idEmployee) {
-		// TODO Auto-generated method stub
 		List<Employee> employees = employeeDao.findAll();
 		for (Employee e : employees) {
 			if (e.getId() == idEmployee) {
@@ -44,9 +42,4 @@ public class ServiceListeEmployee implements IServiceListeEmployee{
 		employeeDao.save(employee);
 	}
 
-	@Override
-	public void supprimerEmployee(Employee employee) {
-		// TODO Auto-generated method stub
-		employeeDao.delete(employee);
-	}
 }

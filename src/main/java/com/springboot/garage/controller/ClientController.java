@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.springboot.garage.controller.form.ClientForm;
+import com.springboot.garage.enums.Civility;
 import com.springboot.garage.model.Client;
 import com.springboot.garage.services.IServiceListeClients;
 
@@ -32,13 +33,13 @@ public class ClientController {
 	@PostMapping(value = "/ajouterClient")
 	public String ajouterClientPost(@ModelAttribute ClientForm clientForm, Model model) {
 		Client c = new Client();
+		c.setCivility(Civility.valueOf(clientForm.getCivility()));
 		c.setNom(clientForm.getNom());
 		c.setPrenom(clientForm.getPrenom());
 		c.setAdresse(clientForm.getAdresse());
-		c.setCodePostalVille(clientForm.getCodePostalVille());
+		c.setCodePostal(clientForm.getCodePostal());
+		c.setVille(clientForm.getVille());
 		c.setTelephone(clientForm.getTelephone());
-		c.setMobile(clientForm.getMobile());
-		c.setCreateur(Integer.parseInt(clientForm.getCreateur()));
 		clientService.ajouterClient(c);
 		return null;
 	}
@@ -46,20 +47,20 @@ public class ClientController {
 	@GetMapping(value = "/modifierClient")
 	public String modifierClientGet(Model model) {
 		model.addAttribute("clientForm", new ClientForm());
+		model.addAttribute("clientModId", new Long(0));
 		model.addAttribute("listeClients", clientService.afficherClients());
-		return "ajouterClient";
+		return "modifierClient";
 	}
 	@PostMapping(value = "/modifierClient")
-	public String modifierClientPost(@ModelAttribute ClientForm clientForm, Model model) {
-		Client c = new Client();
-		//Client ID
+	public String modifierClientPost(@ModelAttribute ClientForm clientForm, @ModelAttribute Long clientModId, Model model) {
+		Client c = clientService.trouverClient(clientModId);
+		c.setCivility(Civility.valueOf(clientForm.getCivility()));
 		c.setNom(clientForm.getNom());
 		c.setPrenom(clientForm.getPrenom());
 		c.setAdresse(clientForm.getAdresse());
-		c.setCodePostalVille(clientForm.getCodePostalVille());
+		c.setCodePostal(clientForm.getCodePostal());
+		c.setVille(clientForm.getVille());
 		c.setTelephone(clientForm.getTelephone());
-		c.setMobile(clientForm.getMobile());
-		c.setCreateur(Integer.parseInt(clientForm.getCreateur()));
 		clientService.modifierClient(c);
 		return null;
 	}

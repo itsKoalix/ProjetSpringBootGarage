@@ -16,13 +16,11 @@ public class ServiceListeClients implements IServiceListeClients {
 	
 	@Override
 	public List<Client> afficherClients() {
-		// TODO Auto-generated method stub
 		return clientDao.findAll();
 	}
 
 	@Override
 	public Client trouverClient(Long idClient) {
-		// TODO Auto-generated method stub
 		List<Client> clients = clientDao.findAll();
 		for (Client c : clients) {
 			if (c.getId() == idClient) {
@@ -34,13 +32,11 @@ public class ServiceListeClients implements IServiceListeClients {
 
 	@Override
 	public void ajouterClient(Client client) {
-		// TODO Auto-generated method stub
 		clientDao.save(client);
 	}
 
 	@Override
 	public void modifierClient(Client client) {
-		// TODO Auto-generated method stub
 		clientDao.save(client);
 	}
 

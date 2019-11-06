@@ -1,5 +1,5 @@
 package com.springboot.garage.controller.form;
 
-public class CommandeVenteVehiculeForm {
+public class DevisForm {
 
 }

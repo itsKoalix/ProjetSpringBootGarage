@@ -1,5 +1,7 @@
 package com.springboot.garage.model;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,19 +10,17 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Vehicule {
+public class CommandeAchatPiece {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	long id;
 	
 	String reference;
-	String marque;
-	String modele;
-	int annee;
-	String couleur;
+	Date dateDeCreation;
+	Date dateDeCloture;
+	Piece piece;
 	int quantity;
-	double prix;
 	
 	
 	
@@ -36,29 +36,23 @@ public class Vehicule {
 	public void setReference(String reference) {
 		this.reference = reference;
 	}
-	public String getMarque() {
-		return marque;
+	public Date getDateDeCreation() {
+		return dateDeCreation;
 	}
-	public void setMarque(String marque) {
-		this.marque = marque;
+	public void setDateDeCreation(Date dateDeCreation) {
+		this.dateDeCreation = dateDeCreation;
 	}
-	public String getModele() {
-		return modele;
+	public Date getDateDeCloture() {
+		return dateDeCloture;
 	}
-	public void setModele(String modele) {
-		this.modele = modele;
+	public void setDateDeCloture(Date dateDeCloture) {
+		this.dateDeCloture = dateDeCloture;
 	}
-	public int getAnnee() {
-		return annee;
+	public Piece getPiece() {
+		return piece;
 	}
-	public void setAnnee(int annee) {
-		this.annee = annee;
-	}
-	public String getCouleur() {
-		return couleur;
-	}
-	public void setCouleur(String couleur) {
-		this.couleur = couleur;
+	public void setPiece(Piece piece) {
+		this.piece = piece;
 	}
 	public int getQuantity() {
 		return quantity;
@@ -66,11 +60,4 @@ public class Vehicule {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public double getPrix() {
-		return prix;
-	}
-	public void setPrix(double prix) {
-		this.prix = prix;
-	}
-	
 }

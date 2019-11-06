@@ -1,10 +1,14 @@
 package com.springboot.garage.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.springboot.garage.enums.Civility;
 
 @Entity
 @Table
@@ -14,12 +18,13 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
 	
+	Civility civility;
 	String nom;
 	String prenom;
-	String role;
-	String telephone;
 	String identifiant;
 	String motDePasse;
+	
+	List<String> roles;
 	
 	
 	
@@ -28,6 +33,12 @@ public class Employee {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public Civility getCivility() {
+		return civility;
+	}
+	public void setCivility(Civility civility) {
+		this.civility = civility;
 	}
 	public String getNom() {
 		return nom;
@@ -41,18 +52,6 @@ public class Employee {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
-	public String getTelephone() {
-		return telephone;
-	}
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
-	}
 	public String getIdentifiant() {
 		return identifiant;
 	}
@@ -65,5 +64,10 @@ public class Employee {
 	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
 	}
-
+	public List<String> getRoles() {
+		return roles;
+	}
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
+	}
 }

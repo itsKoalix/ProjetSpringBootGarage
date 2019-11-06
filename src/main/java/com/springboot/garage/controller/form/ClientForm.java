@@ -1,69 +1,63 @@
 package com.springboot.garage.controller.form;
 
+import javax.validation.constraints.Pattern;
+
+
 public class ClientForm {
+	
+	@Pattern(regexp = "Mr|Mme")
+	String civility;
 	
 	String nom;
 	String prenom;
 	String adresse;
-	String codePostalVille;
+	String codePostal;
+	String ville;
 	String telephone;
-	String mobile;
 	
-	String createur;
 	
+	
+	public String getCivility() {
+		return civility;
+	}
+	public void setCivility(String civility) {
+		this.civility = civility;
+	}
 	public String getNom() {
 		return nom;
 	}
-
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
 	public String getPrenom() {
 		return prenom;
 	}
-
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-
 	public String getAdresse() {
 		return adresse;
 	}
-
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-
-	public String getCodePostalVille() {
-		return codePostalVille;
+	public String getCodePostal() {
+		return codePostal;
 	}
-
-	public void setCodePostalVille(String codePostalVille) {
-		this.codePostalVille = codePostalVille;
+	public void setCodePostal(String codePostal) {
+		this.codePostal = codePostal;
 	}
-
+	public String getVille() {
+		return ville;
+	}
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
 	public String getTelephone() {
 		return telephone;
 	}
-
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-
-	public String getMobile() {
-		return mobile;
-	}
-
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
-
-	public String getCreateur() {
-		return createur;
-	}
-
-	public void setCreateur(String createur) {
-		this.createur = createur;
-	}
+	
 }

@@ -32,11 +32,7 @@ public class TacheController {
 	@PostMapping(value = "/ajouterTache")
 	public String ajouterTachePost(@ModelAttribute TacheForm tacheForm, Model model) {
 		Tache t = new Tache();
-		//t.setClient(tacheForm.getClient());
-		//t.setDateDeCreation(tacheForm.getDateDeCreation());
-		//t.setEntretien(tacheForm.getEntretien());
-		//t.setEtat(tacheForm.getStatus());
-		t.setDetails(tacheForm.getDetails());
+		
 		tacheService.ajouterTache(t);
 		return null;
 	}
@@ -44,30 +40,16 @@ public class TacheController {
 	@GetMapping(value = "/modifierTache")
 	public String modifierTacheGet(Model model) {
 		model.addAttribute("tacheForm", new TacheForm());
+		model.addAttribute("tacheModId", new Long(0));
 		model.addAttribute("listeTache", tacheService.afficherTaches());
 		return "modifierTache";
 	}
 	@PostMapping(value = "/modifierTache")
-	public String modifierTachePost(@ModelAttribute TacheForm tacheForm, Model model) {
+	public String modifierTachePost(@ModelAttribute TacheForm tacheForm, @ModelAttribute long tacheModId, Model model) {
 		Tache t = new Tache();
-		//t.setClient(tacheForm.getClient());
-		//t.setDateDeCreation(tacheForm.getDateDeCreation());
-		//t.setEntretien(tacheForm.getEntretien());
-		//t.setStatus(tacheForm.getStatus());
-		t.setDetails(tacheForm.getDetails());
+		
 		tacheService.modifierTache(t);
 		return null;
 	}
 	
-	@GetMapping(value = "/SupprimerTache")
-	public String SupprimerTacheForm(Model model) {
-		model.addAttribute("tacheSupprId", new Long(0));
-		model.addAttribute("listeTaches", tacheService.afficherTaches());
-		return "supprimerTache";
-	}
-	@PostMapping(value = "/SupprimerTache")
-	public String SupprimerTacheSubmit(@ModelAttribute Long tacheSupprId, Model model) {
-		tacheService.supprimerTache(tacheService.trouverTache(tacheSupprId));
-		return null;
-	}
 }

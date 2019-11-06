@@ -3,11 +3,11 @@ package com.springboot.garage.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.springboot.garage.services.IServiceListeCommandeEntretien;
+import com.springboot.garage.services.IServiceListeDevis;
 
 @Controller
-public class CommandeEntretienController {
+public class DevisController {
 
 	@Autowired
-	IServiceListeCommandeEntretien commandeEntretienService;
+	IServiceListeDevis commandeVehiculeService;
 }

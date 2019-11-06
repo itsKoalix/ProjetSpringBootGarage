@@ -1,5 +1,7 @@
 package com.springboot.garage.model;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,16 +10,15 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Piece {
+public class FactureVehicule {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	long id;
 	
 	String reference;
-	int quantity;
-	double prix;
-	String description;
+	Date dateDeFacturation;
+	Devis devis;
 	
 	
 	
@@ -33,23 +34,17 @@ public class Piece {
 	public void setReference(String reference) {
 		this.reference = reference;
 	}
-	public int getQuantity() {
-		return quantity;
+	public Date getDateDeFacturation() {
+		return dateDeFacturation;
 	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setDateDeFacturation(Date dateDeFacturation) {
+		this.dateDeFacturation = dateDeFacturation;
 	}
-	public double getPrix() {
-		return prix;
+	public Devis getDevis() {
+		return devis;
 	}
-	public void setPrix(double prix) {
-		this.prix = prix;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDevis(Devis devis) {
+		this.devis = devis;
 	}
 	
 }

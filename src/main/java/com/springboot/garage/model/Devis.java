@@ -1,7 +1,6 @@
 package com.springboot.garage.model;
 
 import java.sql.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,25 +8,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.springboot.garage.enums.EtatFicheEntretien;
-import com.springboot.garage.enums.Priority;
+import com.springboot.garage.enums.EtatDevis;
 
 @Entity
 @Table
-public class FicheEntretien {
+public class Devis {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	long id;
 	
+	String reference;
 	Client client;
 	Employee employee;
 	Date dateDeCreation;
 	Date dateDeCloture;
+	EtatDevis etat;
 	String description;
-	EtatFicheEntretien etat = EtatFicheEntretien.En_Attente;
-	Priority priorité = Priority.Normal;
-	List<Tache> taches;
+	Vehicule vehicule;
+	double quantity;
 	
 	
 	
@@ -36,6 +35,12 @@ public class FicheEntretien {
 	}
 	public void setId(long id) {
 		this.id = id;
+	}
+	public String getReference() {
+		return reference;
+	}
+	public void setReference(String reference) {
+		this.reference = reference;
 	}
 	public Client getClient() {
 		return client;
@@ -61,28 +66,29 @@ public class FicheEntretien {
 	public void setDateDeCloture(Date dateDeCloture) {
 		this.dateDeCloture = dateDeCloture;
 	}
+	public EtatDevis getEtat() {
+		return etat;
+	}
+	public void setEtat(EtatDevis etat) {
+		this.etat = etat;
+	}
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public EtatFicheEntretien getEtat() {
-		return etat;
+	public Vehicule getVehicule() {
+		return vehicule;
 	}
-	public void setEtat(EtatFicheEntretien etat) {
-		this.etat = etat;
+	public void setVehicule(Vehicule vehicule) {
+		this.vehicule = vehicule;
 	}
-	public Priority getPriorité() {
-		return priorité;
+	public double getQuantity() {
+		return quantity;
 	}
-	public void setPriorité(Priority priorité) {
-		this.priorité = priorité;
+	public void setQuantity(double quantity) {
+		this.quantity = quantity;
 	}
-	public List<Tache> getTaches() {
-		return taches;
-	}
-	public void setTaches(List<Tache> taches) {
-		this.taches = taches;
-	}
+	
 }
